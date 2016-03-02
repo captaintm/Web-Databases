@@ -68,19 +68,6 @@
 		
 	}
 	
-	#if ($result = mysqli_query($db,$sql)){
-	#	while ($row = mysqli_fetch_assoc($result)) {
-	#		echo "<tr>";
-	#		echo "<td>".$row['authors']."</td>";
-	#		echo "<td>"."<a href="."\"".$url."\">".$row['title']."</a>"."</td>";
-	#		echo "<td>".$row['publication']."</td>";
-	#		echo "<td>".$row['year']."</td>";
-	#		echo "<td>".$row['type']."</td>";			
-	#		echo "</tr>";
-	#	}
-	#	echo "</table>";
-	#}
-	
 	if ($stmt = mysqli_prepare($db, $sql)) {
 		$limit = ($currentpage-1)*25;
 		mysqli_stmt_bind_param($stmt,'i',$limit);	
@@ -132,11 +119,5 @@
 		}
 	}
 	echo "<center>"
-	
-	#echo "current: ".$currentpage;
-	#echo "<br>";
-	#echo "get-sort by: ".$_GET['sortby'];
-	#echo "<br>";
-	#echo "sort by: ".$sort;
 	
 ?>
